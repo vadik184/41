@@ -6,24 +6,12 @@ const favorCase = document.querySelector(".header-item-favorite");
 const favorLink = document.querySelector(".header-favor-link");
 const homeCase = document.querySelector(".header-item-home");
 
-openMenuBtn.addEventListener("click", getOpen);
-function getOpen() {
-  mobileMenu.classList.add("is-open");
-}
-closeMenuBtn.addEventListener("click", getClose);
-function getClose() {
-  mobileMenu.classList.remove("is-open");
-}
-favorCase.addEventListener("click", openFavor);
-function openFavor() {
-  favorCase.style.backgroundColor = "#f4f4f4";
-  favorCase.style.color = "rgba(36, 36, 36, 1)";
-}
-//   const toggleMenu = () => {
-//     const isMenuOpen =
-//       openMenuBtn.getAttribute("aria-expanded") === "true" || false;
-//     openMenuBtn.setAttribute("aria-expanded", !isMenuOpen);
-//     mobileMenu.classList.toggle("is-open");
+const toggleHeaderMenu = () => {
+  const isMenuOpen =
+    openMenuBtn.getAttribute("aria-expanded") === "true" || false;
+  openMenuBtn.setAttribute("aria-expanded", !isMenuOpen);
+  mobileMenu.classList.toggle("is-open");
+};
 
 //     //     const scrollLockMethod = !isMenuOpen
 //     //       ? "disableBodyScroll"
@@ -31,8 +19,8 @@ function openFavor() {
 //     //     bodyScrollLock[scrollLockMethod](document.body);
 //   };
 
-//   openMenuBtn.addEventListener("click", toggleMenu);
-//   closeMenuBtn.addEventListener("click", toggleMenu);
+openMenuBtn.addEventListener("click", toggleHeaderMenu);
+closeMenuBtn.addEventListener("click", toggleHeaderMenu);
 
 //   // Close the mobile menu on wider screens if the device orientation changes
 //   window.matchMedia("(min-width: 428px)").addEventListener("change", (e) => {
@@ -42,3 +30,11 @@ function openFavor() {
 //     // bodyScrollLock.enableBodyScroll(document.body);
 //   });
 // })();
+const navBar = document.querySelector(".header-nav-list").querySelectorAll("a");
+console.log(navBar);
+navBar.forEach((elements) => {
+  element.addEventListener("clik", function () {
+    navBar.forEach((nav) => nav.classList.remove(".header-active"));
+    this.classList.add(".header-active");
+  });
+});
