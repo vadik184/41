@@ -13,12 +13,6 @@ const toggleHeaderMenu = () => {
   mobileMenu.classList.toggle("is-open");
 };
 
-//     //     const scrollLockMethod = !isMenuOpen
-//     //       ? "disableBodyScroll"
-//     //       : "enableBodyScroll";
-//     //     bodyScrollLock[scrollLockMethod](document.body);
-//   };
-
 openMenuBtn.addEventListener("click", toggleHeaderMenu);
 closeMenuBtn.addEventListener("click", toggleHeaderMenu);
 
@@ -30,11 +24,32 @@ window.matchMedia("(min-width: 428px)").addEventListener("change", (e) => {
   //     // bodyScrollLock.enableBodyScroll(document.body);
 });
 // })();
-const navBar = document.querySelector(".header-nav-list").querySelectorAll("a");
-console.log(navBar);
-navBar.forEach((elements) => {
-  element.addEventListener("clik", function () {
-    navBar.forEach((nav) => nav.classList.remove(".header-active"));
-    this.classList.add(".header-active");
+// const navBar = document.querySelector(".header-nav-list").querySelectorAll("a");
+// console.log(navBar);
+// navBar.forEach((elements) => {
+//   element.addEventListener("clik", function () {
+//     navBar.forEach((nav) => nav.classList.remove(".header-active"));
+//     this.classList.add(".header-active");
+//   });
+// });
+const menuLinks = document.querySelectorAll(".header-nav-link");
+console.log(menuLinks);
+const runu = document.baseURI;
+console.log(runu);
+// const menuLinkFav = document.querySelector(".header-nav-link-fav");
+const menuItem = document.querySelectorAll(".header-nav-list-item");
+for (let i = 0; i < menuLinks.length; i++) {
+  menuLinks[i].addEventListener("click", function (cheangeMenuTitle) {
+    if (document.baseURI === menuLinks[i].baseURI) {
+      for (j = 0; j < menuItem.length; j++) {
+        if (menuItem[j].baseURI === menuLinks[i].baseURI) {
+          console.log(menuItem[j].innerText);
+        }
+      }
+    }
   });
-});
+}
+console.log(menuLinks[0].baseURI);
+console.log(menuItem);
+console.log(menuItem[0].children);
+//console.log(menuItem[0].innerText);
