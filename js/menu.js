@@ -37,19 +37,41 @@ console.log(menuLinks);
 const runu = document.baseURI;
 console.log(runu);
 // const menuLinkFav = document.querySelector(".header-nav-link-fav");
-const menuItem = document.querySelectorAll(".header-nav-list-item");
-for (let i = 0; i < menuLinks.length; i++) {
-  menuLinks[i].addEventListener("click", function (cheangeMenuTitle) {
-    if (document.baseURI === menuLinks[i].baseURI) {
-      for (j = 0; j < menuItem.length; j++) {
-        if (menuItem[j].baseURI === menuLinks[i].baseURI) {
-          console.log(menuItem[j].innerText);
-        }
-      }
-    }
-  });
-}
-console.log(menuLinks[0].baseURI);
-console.log(menuItem);
-console.log(menuItem[0].children);
+const menuItems = document.querySelectorAll(".header-nav-list-item");
+const home = document.querySelector("#header-home");
+const favor = document.querySelector("#header-fav");
+
+menuLinks.forEach((menuLink) => {
+  const linkPath = new URL(menuLink.href).pathname;
+  if (document.location.pathname === linkPath) {
+    menuLink.classList.add("home-nav");
+  }
+});
+// const getPage = () => {
+//   if (document.location.pathname === "./index.html") {
+//     document.querySelector("body").style.backgroundColor = "red";
+//     home.style.backgroundColor = "#f4f4f4";
+//     favor.classList.remove(".fav-nav");
+//   } else if (document.location.pathname === "./index2.html") {
+//     favor.classList.add(".fav-nav");
+//     home.style.backgroundColor = "transparent";
+//   }
+// };
+
+// for (let i = 0; i < menuLinks.length; i++) {
+//   menuLinks[i].addEventListener("click", function (cheangeMenuTitle) {
+//     let danim = menuLinks[i].baseURI;
+//     if (document.location.pathname === menuLinks[i].baseURI) {
+//       for (j = 0; j < menuItem.length; j++) {
+//         if (menuItem[j].baseURI === danim) {
+//           console.log(menuItem[j].innerText);
+//         }
+//       }
+//     }
+//   });
+// }
+
+// console.log(menuLinks[0].baseURI);
+// console.log(menuItem);
+// console.log(menuItem[0].children);
 //console.log(menuItem[0].innerText);
