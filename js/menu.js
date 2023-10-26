@@ -33,9 +33,11 @@ window.matchMedia("(min-width: 428px)").addEventListener("change", (e) => {
 //   });
 // });
 const menuLinks = document.querySelectorAll(".header-nav-link");
-console.log(menuLinks);
+console.log(menuLinks.href);
 const runu = document.baseURI;
-console.log(runu);
+console.log(document);
+console.log(document.location.pathname);
+
 // const menuLinkFav = document.querySelector(".header-nav-link-fav");
 const menuItems = document.querySelectorAll(".header-nav-list-item");
 const home = document.querySelector("#header-home");
@@ -46,6 +48,12 @@ menuLinks.forEach((menuLink) => {
   if (document.location.pathname === linkPath) {
     menuLink.classList.add("home-nav");
   }
+  // if (document.location.pathname === menuLink.attributes.href.nodeValue) {
+  //   console.log(menuLink.attributes);
+  //   document.querySelector("body").style.backgroundColor = "green";
+  // } else {
+  //   document.querySelector("body").style.backgroundColor = "red";
+  // }
 });
 // const getPage = () => {
 //   if (document.location.pathname === "./index.html") {
